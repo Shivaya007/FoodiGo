@@ -18,13 +18,13 @@
         "react-bootstrap": "^2.10.9",
         "react-dom": "^19.0.0",
         "react-router-dom": "^7.1.1",
-        "react-scripts": "5.0.1",
+        "react-scripts": "^5.0.1",
         "styled-components": "^6.1.15",
         "web-vitals": "^4.2.4"
     },
     "scripts": {
-         "start": "serve -s build",
-  "build": "react-scripts build",
+        "start": "serve -s build",
+        "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject"
     },
