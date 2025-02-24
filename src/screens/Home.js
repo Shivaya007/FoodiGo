@@ -2,7 +2,7 @@ import React, {useState,useEffect} from "react";
 import Navbar from '../components/Navbar';
 import Cardss from '../components/Cardss';
 import Footer from '../components/Footer';
-
+require("dotenv").config();
 import Carousal from '../components/Carousal';
 
 
@@ -12,7 +12,7 @@ export default function Home() {
 
 
   const loadData = async () =>{
-    let response = await fetch("http://localhost:5000/api/foodData",{
+    let response = await fetch("${process.env.REACT_APP_BACKEND_URL}/api/foodData",{
       method:"POST",
       headers:{
         'content-Type':'application/json'
