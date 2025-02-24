@@ -9,7 +9,7 @@ export default function Login(){
   let navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch("${process.env.REACT_APP_BACKEND_URL}api/loginuser", {
+    const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}api/loginuser`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
