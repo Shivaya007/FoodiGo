@@ -18,7 +18,7 @@ const mongoDB = async () => {
                 global.food_items = foodItems;
                 global.food_category = foodCategory;
                 
-                console.log(global.food_items);
+            
             } 
         
      catch (error) {
