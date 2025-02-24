@@ -1,6 +1,9 @@
+require("dotenv").config();
 const express = require('express')
 const app = express()
 const port = 5000
+
+
 const mongoDB =require("./db")
 (async () => {
    await mongoDB(); // Call async function properly

@@ -1,19 +1,32 @@
-import React from 'react';
+import React,{useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Link,useNavigate} from 'react-router-dom'
 import Badge from 'react-bootstrap/Badge';
 
-export default function Navbar() {
-   const navigate=useNavigate();
-   const handleLogout = ()=>{
-      localStorage.removeItem("authToken");
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { useCart } from './ContextReducer';
+
+import Modal from '../Modal';
+import Cart from '../screens/Cart';
+export default function Navbar(props) {
+  const [cartView, setCartView] = useState(false)
+  localStorage.setItem('temp', "first")
+  let navigate = useNavigate();
+  const items = useCart(); 
+  const handleLogout = () => {
+      localStorage.removeItem('token')
+
       navigate("/login")
-   }
+  }
+
+  const loadCart = () => {
+      setCartView(true)
+  }
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-success">
         <div className="container-fluid">
-          <Link className="navbar-brand fs-1 fst-italic" to="/">GoFood</Link>
+          <Link className="navbar-brand fs-1 fst-italic" to="/">FoodiGo</Link>
           <button 
             className="navbar-toggler" 
             type="button" 
@@ -45,10 +58,15 @@ export default function Navbar() {
              </div>
              :
              <div>
-             <div className='btn bg-white text-success mx-2'>
-                My Cart {" "}
-             <Badge pill bg ="danger">2</Badge>
-             </div>
+
+<div className="btn bg-white text-success mx-2 " onClick={loadCart}><ShoppingCartIcon/> {" "}Cart {" "}
+    <Badge color="secondary" badgeContent={items.length} >{items.length}
+        
+    </Badge>
+  
+</div>
+
+             {cartView? <Modal onClose={()=>setCartView(false)}><Cart/></Modal>:null}
              <div className='btn bg-white text-danger mx-2' onClick={handleLogout}>
                 Logout
              
