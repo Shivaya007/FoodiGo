@@ -1,16 +1,15 @@
 import React, { useState } from 'react'
 
-require("dotenv").config();
+       
 import { Link, useNavigate } from 'react-router-dom'
 
 export default function Login(){
-  console.log("Backend URL:", process.env.REACT_APP_BACKEND_URL);
 
   const [credentials, setcredentials] = useState({ email: "", password: "" })
   let navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/loginuser`, {
+    const response = await fetch("http://localhost:5000/api/loginuser", {
       method: 'POST',
       headers: {
         'content-type': 'application/json'

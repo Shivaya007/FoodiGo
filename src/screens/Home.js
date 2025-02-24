@@ -2,18 +2,17 @@ import React, {useState,useEffect} from "react";
 import Navbar from '../components/Navbar';
 import Cardss from '../components/Cardss';
 import Footer from '../components/Footer';
-require("dotenv").config();
+
 import Carousal from '../components/Carousal';
 
 
 export default function Home() {
-  console.log("Backend URL:", process.env.REACT_APP_BACKEND_URL);
   const [foodCat,setFoodCat] = useState([]);
   const [foodItem,setFoodItem] = useState([]);
 
 
   const loadData = async () =>{
-    let response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/foodData`,{
+    let response = await fetch("http://localhost:5000/api/foodData",{
       method:"POST",
       headers:{
         'content-Type':'application/json'

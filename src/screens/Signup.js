@@ -1,11 +1,10 @@
 import React,{useState} from 'react'
-require("dotenv").config();
 import {Link} from 'react-router-dom'
 export default function Signup() {
     const [credentials, setcredentials]  = useState({name:"",email:"",password:"",geolocation:""})
     const handleSubmit = async(e)=>{
         e.preventDefault();
-        const response =await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/CreateUser`,{
+        const response =await fetch("http://localhost:5000/api/CreateUser",{
             method:'POST',
             headers:{
                 'content-type':'application/json'
