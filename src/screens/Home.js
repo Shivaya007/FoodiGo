@@ -12,7 +12,7 @@ export default function Home() {
 
 
   const loadData = async () =>{
-    let response = await fetch("http://localhost:5000/api/foodData",{
+    let response = await fetch("${process.env.REACT_APP_BACKEND_URL}/api/foodData",{
       method:"POST",
       headers:{
         'content-Type':'application/json'
