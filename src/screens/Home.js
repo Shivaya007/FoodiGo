@@ -7,6 +7,7 @@ import Carousal from '../components/Carousal';
 
 
 export default function Home() {
+  console.log("Backend URL:", process.env.REACT_APP_BACKEND_URL);
   const [foodCat,setFoodCat] = useState([]);
   const [foodItem,setFoodItem] = useState([]);
 
