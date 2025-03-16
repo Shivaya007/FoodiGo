@@ -19,51 +19,52 @@ export default function Cardss(props) {
     }
   }, [priceOptions]);
 
-  let finalPrice = qty * parseInt(options?.[size] || 0);
-  console.log("Final Price:", finalPrice, "Qty:", qty, "Size:", size, "Options:", options);
-
   const handleQty = (e) => setQty(e.target.value);
-  
+
   const handleOptions = (e) => setSize(e.target.value);
 
-  const handleAddToCart = async () => {
+  const handleAddToCart = () => {
     let food = data.find(item => item.id === foodItem._id && item.size === size);
   
+    let finalPrice = qty * (parseInt(options[size]) || 0);
+
     console.log("Dispatching:", {
       id: foodItem._id,
       name: foodItem.name,
       price: finalPrice,
       qty: qty,
       size: size,
-      img: props.ImgSrc
+      img: props.ImgSrc || foodItem.img
     });
   
     if (food) {
-      await dispatch({
+      dispatch({
         type: "UPDATE",
         id: foodItem._id,
         price: finalPrice,
         qty: qty
       });
     } else {
-      await dispatch({
+      dispatch({
         type: "ADD",
         id: foodItem._id,
         name: foodItem.name,
         price: finalPrice,
         qty: qty,
         size: size,
-        img: props.ImgSrc
+        img: props.ImgSrc || foodItem.img
       });
     }
   };
-  
+
+  // ✅ Calculate final price directly in the render section
+  let finalPrice = qty * (parseInt(options[size]) || 0);
 
   return (
     <div className="card mt-3" style={{ width: "16rem", maxHeight: "360px" }}>
       {/* Image */}
       <img
-        src={foodItem.img}
+        src={props.ImgSrc || foodItem.img}
         className="card-img-top"
         alt={foodItem.name}
         style={{ height: "120px", objectFit: "cover" }}
@@ -92,7 +93,7 @@ export default function Cardss(props) {
         </select>
 
         {/* Final Price */}
-        <div className="d-inline ms-2 h-100 w-20 fs-5">
+        <div className="d-inline ms-2 h-100 fs-5" style={{ width: '20%' }}>
           ₹{finalPrice}/-
         </div>
       </div>
@@ -109,5 +110,3 @@ export default function Cardss(props) {
     </div>
   );
 }
-
-

@@ -1,9 +1,12 @@
 require("dotenv").config();
 const express = require('express')
+const cors = require('cors');
+
 const app = express()
 const port = 5000
 
-
+app.use(express.json()); // ✅ Parse JSON requests
+app.use(cors()); 
 const mongoDB =require("./db")
 (async () => {
    await mongoDB(); // Call async function properly
