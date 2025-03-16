@@ -48,9 +48,12 @@ export default function Cart() {
   };
 
   let totalPrice = data.reduce(
-    (total, food) => total + (food.qty * food.price), 
+    (total, food) => total + (food.qty * Number(food.price || 0)), 
     0
   );
+  
+  console.log("Cart Data:", data);
+  console.log("Total Price:", totalPrice);
 
   return (
     <div>
