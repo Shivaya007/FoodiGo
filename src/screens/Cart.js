@@ -48,12 +48,12 @@ export default function Cart() {
   };
 
   let totalPrice = data.reduce(
-    (total, food) => total + (food.qty * Number(food.price || 0)), 
-    0
-  );
-  
-  console.log("Cart Data:", data);
-  console.log("Total Price:", totalPrice);
+  (total, food) => total + (food.qty * Number(food.price || 0)), 
+  0
+);
+
+console.log("Cart Data:", data);
+console.log("Total Price:", totalPrice);
 
   return (
     <div>
@@ -75,8 +75,8 @@ export default function Cart() {
                 <th scope="row">{index + 1}</th>
                 <td>{food.name}</td>
                 <td>{food.qty}</td>
+                <td>₹{food.price}</td>
                 <td>{food.size}</td>
-                <td>₹{food.qty * food.price}</td>
                 <td>
                   {/* Delete Button */}
                   <button 

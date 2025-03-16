@@ -26,12 +26,12 @@ export default function Cardss(props) {
   const handleAddToCart = () => {
     let food = data.find(item => item.id === foodItem._id && item.size === size);
   
-    let finalPrice = qty * (parseInt(options[size]) || 0);
+    let price = qty * (parseInt(options[size]) || 0);
 
     console.log("Dispatching:", {
       id: foodItem._id,
       name: foodItem.name,
-      price: finalPrice,
+      price: price,
       qty: qty,
       size: size,
       img: props.ImgSrc || foodItem.img
@@ -49,7 +49,7 @@ export default function Cardss(props) {
         type: "ADD",
         id: foodItem._id,
         name: foodItem.name,
-        price: finalPrice,
+        price: price,
         qty: qty,
         size: size,
         img: props.ImgSrc || foodItem.img
@@ -58,7 +58,7 @@ export default function Cardss(props) {
   };
 
   // ✅ Calculate final price directly in the render section
-  let finalPrice = qty * (parseInt(options[size]) || 0);
+  let price = qty * (parseInt(options[size]) || 0);
 
   return (
     <div className="card mt-3" style={{ width: "16rem", maxHeight: "360px" }}>
@@ -94,7 +94,7 @@ export default function Cardss(props) {
 
         {/* Final Price */}
         <div className="d-inline ms-2 h-100 fs-5" style={{ width: '20%' }}>
-          ₹{finalPrice}/-
+          ₹{price}/-
         </div>
       </div>
 
