@@ -13,6 +13,7 @@ import {
 } from "react-router-dom";
 import Login from './screens/Login.js';
 import Signup from './screens/Signup.js';
+import MyOrder from './screens/MyOrder.js';
 import { CartProvider } from './components/ContextReducer';
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route exact path="/" element={<Home/>}/>
         <Route exact path="/login" element={<Login/>}/>
         <Route exact path="/CreateUser" element={<Signup/>}/>
+        <Route exact path="/myorder" element={<MyOrder />} />
       </Routes>
     
     </div>
