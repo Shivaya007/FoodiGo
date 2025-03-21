@@ -9,7 +9,7 @@ export default function Login(){
   let navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch("http://localhost:5000/api/loginuser", {
+    const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/loginuser`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
@@ -23,8 +23,13 @@ export default function Login(){
       alert("Enter valid credential")
     }
     if (json.success) {
+<<<<<<< HEAD
       localStorage.setItem("userEmail",credentials.email);
       localStorage.setItem("authToken",json.authToken);
+=======
+      localStorage.setItem("authToken",json.authToken);
+      localStorage.setItem("userEmail",credentials.email);
+>>>>>>> 04b3cae5e91c3d5656dc058712ec7a73a87ec9b0
       console.log(localStorage.getItem("authToken"));
        navigate("/");
     }

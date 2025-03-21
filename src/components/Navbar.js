@@ -8,8 +8,11 @@ import { useCart } from './ContextReducer';
 
 import Modal from '../Modal';
 import Cart from '../screens/Cart';
+<<<<<<< HEAD
 import MyOrder from '../screens/MyOrder';
 
+=======
+>>>>>>> 04b3cae5e91c3d5656dc058712ec7a73a87ec9b0
 export default function Navbar(props) {
   const [cartView, setCartView] = useState(false)
   localStorage.setItem('temp', "first")

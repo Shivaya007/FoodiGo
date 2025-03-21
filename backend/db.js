@@ -1,12 +1,14 @@
+
+require("dotenv").config();
 const mongoose=require('mongoose');
-const mongoURI = 'mongodb+srv://shivayagupta:123@cluster0.838ia.mongodb.net/gofoodmern?retryWrites=true&w=majority&appName=Cluster0';
+
 const FoodItemSchema = new mongoose.Schema({}, { strict: false });
 const FoodItem = mongoose.model('FoodItem', FoodItemSchema, 'food_items');
-
+const dbUrl= process.env.MONGO_URI;
 const mongoDB = async () => {
    
             try {
-                await mongoose.connect(mongoURI);
+                await mongoose.connect(dbUrl);
                 console.log("Connected to MongoDB");
         
                 // Fetching food items
@@ -16,7 +18,11 @@ const mongoDB = async () => {
                 global.food_items = foodItems;
                 global.food_category = foodCategory;
                 
+<<<<<<< HEAD
     
+=======
+            
+>>>>>>> 04b3cae5e91c3d5656dc058712ec7a73a87ec9b0
             } 
         
      catch (error) {
