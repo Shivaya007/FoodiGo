@@ -8,7 +8,7 @@ export default function MyOrder() {
     const fetchMyOrder = async () => {
         console.log(localStorage.getItem('userEmail'));
         try {
-            const res = await fetch("https://your-backend-service.onrender.com/api/myOrderData", { // ✅ Fixed URL
+            const res = await fetch("http://localhost:5000/api/myOrderData", { // ✅ Fixed URL
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

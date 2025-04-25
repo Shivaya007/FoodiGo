@@ -20,7 +20,7 @@ export default function Signup() {
     // console.log(latlong)
     let [lat, long] = latlong
     console.log(lat, long)
-    const response = await fetch("https://your-backend-service.onrender.com/api/getlocation", {
+    const response = await fetch("http://localhost:5000/api/getlocation", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -36,9 +36,9 @@ export default function Signup() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch("https://your-backend-service.onrender.com/api/createuser", {
-      // credentials: 'include',
-      // Origin:"http://localhost:3000/login",
+    const response = await fetch("http://localhost:5000/api/createuser", {
+      credentials: 'include',
+      Origin:"http://localhost:3000/login",
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

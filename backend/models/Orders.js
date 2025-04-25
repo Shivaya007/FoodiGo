@@ -6,7 +6,7 @@ const OrderSchema = new mongoose.Schema({
     required: true
   },
   order_data: {
-    type: Array,
+    type: Array,  
     required: true
   }
 });
